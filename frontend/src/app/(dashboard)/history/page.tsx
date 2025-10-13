@@ -82,7 +82,7 @@ export default function HistoryPage() {
   }
 
   return (
-    <div className="flex h-[calc(100vh-8rem)] border rounded-lg">
+    <div className="flex h-[calc(100vh-8rem)] border rounded-lg w-full">
       {/* Left: List of prompts */}
       <aside className="w-1/3 md:w-1/4 border-r overflow-y-auto">
         <div className="sticky top-0 p-4 backdrop-blur supports-[backdrop-filter]:bg-background/60">

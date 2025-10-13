@@ -35,7 +35,7 @@ export default function AskPage() {
 
 	useEffect(() => {
 		if (hasSubmitted) {
-			const timer = setTimeout(() => setIsResponseVisible(true), 50);
+			const timer = setTimeout(() => setIsResponseVisible(true), 100);
 			return () => clearTimeout(timer);
 		}
 	}, [hasSubmitted]);
@@ -68,15 +68,16 @@ export default function AskPage() {
 			setIsLoading(false);
 		}
 	};
-
 	return (
-		<div className={`flex w-full gap-6 transition-all duration-700 ease-in-out ${hasSubmitted ? 'justify-between' : 'justify-center'}`}>
+		<div className="relative w-full min-h-[600px] p-4 md:p-12">
 
-			{/* INPUT CARD WRAPPER */}
-			<div className={`transition-all duration-700 ease-in-out ${hasSubmitted ? 'w-2/5' : 'w-full max-w-2xl'}`}>
+			{/* Input Card Wrapper */}
+			<div
+				className={`absolute top-0 w-full max-w-xl transition-all duration-700 ease-in-out ${hasSubmitted ? 'left-0 translate-x-0' : 'left-1/2 -translate-x-1/2'}`}
+			>
 				<Card className="sticky top-20">
 					<CardHeader>
-						<CardTitle>Describe Your Symptoms:</CardTitle>
+						<CardTitle>Describe Your Symptoms</CardTitle>
 					</CardHeader>
 					<CardContent className="space-y-4">
 						<Textarea
@@ -93,9 +94,9 @@ export default function AskPage() {
 				</Card>
 			</div>
 
-			{/* RESPONSE CARD WRAPPER */}
+			{/* Response Card Wrapper */}
 			{hasSubmitted && (
-				<div className={`w-3/5 min-h-[200px] transition-opacity duration-500 ease-in-out ${isResponseVisible ? 'opacity-100' : 'opacity-0'}`}>
+				<div className={`absolute top-0 right-0 w-[60%] min-h-[200px] transition-opacity duration-500 ease-in-out ${isResponseVisible ? 'opacity-100' : 'opacity-0'}`}>
 					{isLoading && <LoadingSkeleton />}
 					{error && (
 						<Alert variant="destructive">
@@ -107,7 +108,7 @@ export default function AskPage() {
 					{response && !isLoading && (
 						<Card>
 							<CardHeader>
-								<CardTitle>AI Diagnosis</CardTitle>
+								<CardTitle>AI Analysis</CardTitle>
 								<p className="text-sm text-muted-foreground pt-2">
 									Based on your symptoms: "{userPrompt}"
 								</p>
@@ -118,7 +119,7 @@ export default function AskPage() {
 										h2: ({ node, ...props }) => <h2 className="text-lg font-semibold border-b pb-2 mt-4 text-primary" {...props} />,
 										ul: ({ node, ...props }) => <ul className="list-disc list-inside" {...props} />,
 										ol: ({ node, ...props }) => <ol className="list-decimal list-inside" {...props} />,
-										li: ({ node, ...props }) => <li className="pl-2 py-2.5" {...props} />,
+										li: ({ node, ...props }) => <li className="pl-2 py-1.5" {...props} />,
 										p: ({ node, ...props }) => <p className="leading-7 [&:not(:first-child)]:mt-4" {...props} />,
 										strong: ({ node, ...props }) => <strong className="font-semibold text-foreground/90" {...props} />,
 									}}

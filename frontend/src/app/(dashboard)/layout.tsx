@@ -41,17 +41,15 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
               </NavigationMenuList>
             </NavigationMenu>
           </div>
-          {/* You might want a mobile menu here in the future */}
         </div>
       </header>
 
-      {/* Main Content Area */}
-      {/* Your original code for this section was already correct! */}
+      {/* Main Content*/}
       <main className="flex-1 w-full">
-        <div className="max-w-7xl mx-auto px-6 py-6">{children}</div>
+        <div className="max-w-8xl mx-auto px-6 py-6">{children}</div>
       </main>
 
-      {/* Mode Toggle */}
+      {/* Light/Dark Mode Toggle */}
       <div className="fixed bottom-4 right-4">
         <ModeToggle />
       </div>
