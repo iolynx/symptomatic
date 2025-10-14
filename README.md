@@ -41,8 +41,8 @@ This project demonstrates a full-stack AI integration workflow:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/healthcare-symptom-checker.git
-cd healthcare-symptom-checker
+git clone https://github.com/iolynx/symptomatic.git
+cd symptomatic
 ```
 
 ### Setup Backend
